@@ -7,11 +7,7 @@ class order(models.Model):
 
     cara_bayar = fields.Char("Cara Bayar")
 
-    purchase_id = fields.Many2one(comodel_name="purchase.order",
-                                  string="PO",
-
-                                )
-
+    purchase_id = fields.Many2one(comodel_name="purchase.order",string="PO")
 
     location_ids = fields.One2many(comodel_name="sale.order.location",
                                     inverse_name="sale_id",
