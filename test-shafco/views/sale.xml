@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="sale2" model="ir.ui.view">
+            <field name="name">sale2</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+
+                <field name="partner_id" position="after">
+                    <field name="cara_bayar"/>
+                    <!--<field name="location_ids"/>-->
+                </field>
+
+                <field name="pricelist_id" position="after">
+                    <field name="purchase_id"/>
+                </field>
+
+
+                <notebook position="inside">
+                    <page string="Qty per Location">
+                        <field name="location_ids">
+                            <tree string="Qty">
+                                <field name="location_id"/>
+                                <field name="quantity"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+
+            </field>
+        </record>
+
+
+        <record id="tree2" model="ir.ui.view">
+            <field name="name">tree2</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_quotation_tree"/>
+            <field name="arch" type="xml">
+                <field name="user_id" position="after">
+                    <field name="cara_bayar"/>
+                    <field name="purchase_id"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>
